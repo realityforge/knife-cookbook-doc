@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>knife-cookbook-doc by realityforge</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">knife-cookbook-doc</h1>
+        <p class="header">Knife plugin to document cookbooks</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/realityforge/knife-cookbook-doc/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/realityforge/knife-cookbook-doc/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/realityforge/knife-cookbook-doc">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/realityforge">realityforge</a></p>
+
+
+      </header>
+      <section>
+        <h1>knife-cookbook-doc</h1>
+
+<p>This is a knife plugin to help create and maintain a README.md for a cookbook.
+As much as possible the plugin makes use of the same metadata as used by chef
+when generating the documentation. The plugin will also scan the source files
+for annotations present in comments. Users can also add fragments of markdown
+into the doc/ directory to merge into the generated README.md file.</p>
+
+<p>The goal is to keep the code as the authoritative source of information. The
+hope is that keeping the documentation close to the code will help to maintain
+it's currency.</p>
+
+<h2>Getting Started</h2>
+
+<h4>Step 1</h4>
+
+<p>Populate the <code>metadata.rb</code> of your cookbook according to Opscode's
+<a href="http://docs.opscode.com/config_rb_metadata.html">documentation</a>. Particular
+attention should be paid to documenting the recipes, attributes, platform
+compatibility and cookbook requirements (i.e. depends, recommends, suggests etc).</p>
+
+<h4>Step 2</h4>
+
+<p>At the top of each cookbook, add a detailed documentation section such as;</p>
+
+<pre><code>=begin
+#&lt;
+The recipe is awesome. It does thing 1, thing 2 and thing 3!
+#&gt;
+=end
+</code></pre>
+
+<h4>Step 3</h4>
+
+<p>In each LWRP, add detailed documentation such as;</p>
+
+<pre><code>=begin
+#&lt;
+This creates and destroy the awesome service.
+
+@action create  Create the awesome service.
+@action destroy Destroy the awesome service.
+
+@section Examples
+
+    # An example of my awesome service
+    mycookbook_awesome_service "my_service" do
+      port 80
+    end
+#&gt;
+=end
+
+...
+
+#&lt;&gt; @attribute port The port on which the HTTP service will bind.
+attribute :port, :kind_of =&gt; Integer, :default =&gt; 8080
+</code></pre>
+
+<p>It should be noted that the documentation of the LWRP requires that the user
+document the actions, using <code>@action &lt;action&gt; &lt;description&gt;</code> and the attributes
+using <code>@attribute &lt;attribute&gt; &lt;description&gt;</code> so that there is meaningful
+descriptions for the actions and attributes in the generated README.</p>
+
+<p>The documentation will be added at the start of the LWRP documentation
+except if marked with <code>@section &lt;heading&gt;</code>, in which case it will be added
+to the head of the LWRP documentation.</p>
+
+<h4>Step 4</h4>
+
+<p>Finally the user should add some documentation fragments into the <code>doc/</code> dir.
+Most importantly you should add <code>doc/overview.md</code> which will replace the first
+<code>Description</code> section of the readme. The remaining fragments will be included
+at the end of the readme in lexicographic order of the filename.</p>
+
+<h2>Installation</h2>
+
+<p>You can install the plugin via RubyGems:</p>
+
+<pre><code>$ gem install knife-cookbook-doc
+</code></pre>
+
+<p>Alternatively, you can install the plugin from source:</p>
+
+<pre><code>$ git clone git://github.com/realityforge/knife-cookbook-doc.git
+$ cd knife-cookbook-doc/
+$ bundle install
+$ bundle exec rake install
+</code></pre>
+
+<p>Afterwards, the new knife command <code>knife cookbook doc DIR</code> will be available.</p>
+
+<h2>Usage</h2>
+
+<pre><code>knife cookbook doc COOKBOOK_DIR (options)
+
+    -o, --output-file FILE           Set the output file to render to relative to cookbook dir. Defaults to README.md
+    -t, --template FILE              Set template file used to render README.md
+
+Examples:
+
+    knife cookbook doc path/to/cookbook
+    knife cookbook doc path/to/cookbook --template README.md.erb
+</code></pre>
+
+<h2>Further Details</h2>
+
+<h3>Documentation in comments</h3>
+
+<p>The documentation stored in comments comes in three forms;</p>
+
+<h4>Single line comments</h4>
+
+<pre><code>#&lt;&gt; This is some documentation
+</code></pre>
+
+<h4>Multi-line comments using begin/end</h4>
+
+<pre><code>=begin
+#&lt;
+This is some documentation
+#&gt;
+=end
+</code></pre>
+
+<h4>Multi-line comments without using begin/end</h4>
+
+<pre><code>#&lt;
+# This is some documentation
+#&gt;
+</code></pre>
+
+<h2>Credit</h2>
+
+<p>The plugin was originally written by Mathias Lafeldt as a way to create
+initial README.md from the metadata.rb. It was subsequently rewritten by
+Peter Donald to gather information from the other files within the cookbook.
+All credit to Mathias for his wonderful idea.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
