@@ -70,7 +70,7 @@ module KnifeCookbookDoc
     def attributes
       @metadata.attributes.map do |attr, options|
         name = "node['#{attr.gsub("/", "']['")}']"
-        [name, options['description'], options['default']]
+        [name, options['description'], options['default'], options['choice']]
       end
     end
 

@@ -40,8 +40,8 @@
 # Attributes
 
 <% unless attributes.empty? %>
-<% attributes.each do |name, description, default| %>
-* `<%= name %>` - <%= description %>. Defaults to `<%= default %>`.
+<% attributes.each do |name, description, default, choice| %>
+* `<%= name %>` - <%= description %>. <% unless choice.empty? %>Available options: <%= "`#{choice.join('`, `')}`" %>. <% end %>Defaults to `<%= default %>`.
 <% end %>
 <% else %>
 *No attributes defined*
