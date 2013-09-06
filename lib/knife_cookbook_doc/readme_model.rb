@@ -18,8 +18,14 @@ module KnifeCookbookDoc
       end
 
       @recipes = []
-      @metadata.recipes.each do |name, description|
-        @recipes << RecipeModel.new(name, description, "#{cookbook_dir}/recipes/#{name.gsub(/^.*\:(.*)$/,'\1')}.rb")
+      if !@metadata.recipes.empty?
+        @metadata.recipes.each do |name, description|
+          @recipes << RecipeModel.new(name, description, "#{cookbook_dir}/recipes/#{name.gsub(/^.*\:(.*)$/,'\1')}.rb")
+        end
+      else
+        Dir["#{cookbook_dir}/recipes/*.rb"].sort.each do |recipe_filename|
+          @recipes << RecipeModel.new("#{@metadata.name}::#{File.basename(recipe_filename, ".rb")}", recipe_filename)
+        end
       end
       @metadata = @metadata
       @constraints = constraints
