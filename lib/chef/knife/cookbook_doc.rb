@@ -9,6 +9,7 @@ module KnifeCookbookDoc
       require 'knife_cookbook_doc/readme_model'
       require 'knife_cookbook_doc/recipe_model'
       require 'knife_cookbook_doc/resource_model'
+      require 'knife_cookbook_doc/attributes_model'
     end
 
     banner 'knife cookbook doc DIR (options)'
