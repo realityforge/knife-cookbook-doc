@@ -41,7 +41,7 @@
 
 <% unless attributes.empty? %>
 <% attributes.each do |name, description, default, choice| %>
-* `<%= name %>` - <%= description %>. <% unless choice.empty? %>Available options: <%= "`#{choice.join('`, `')}`" %>. <% end %>Defaults to `<%= default %>`.
+* `<%= name %>` - <%= description %><% if !description.nil? && !description.strip.end_with?(".") %>.<% end %> <% unless choice.empty? %>Available options: <%= "`#{choice.join('`, `')}`" %>. <% end %>Defaults to `<%= default %>`.
 <% end %>
 <% else %>
 *No attributes defined*
