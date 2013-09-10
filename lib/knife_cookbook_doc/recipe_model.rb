@@ -4,7 +4,7 @@ module KnifeCookbookDoc
     attr_reader :name
     attr_reader :short_description
 
-    def initialize(name, short_description, filename)
+    def initialize(name, short_description = nil, filename)
       @name = name
       @short_description = short_description
       @filename = filename
@@ -23,7 +23,8 @@ module KnifeCookbookDoc
 
     def load_descriptions
       current_section = 'main'
-      extract_description.each_line do |line|
+      description = extract_description
+      description.each_line do |line|
         if /^ *\@section (.*)$/ =~ line
           current_section = $1.strip
         else
@@ -31,6 +32,9 @@ module KnifeCookbookDoc
           lines << line.gsub("\n",'')
           top_level_descriptions[current_section] = lines
         end
+      end
+      if @short_description.nil? 
+        @short_description = first_sentence(description) || ""
       end
     end
 
@@ -49,6 +53,13 @@ module KnifeCookbookDoc
         ""
       end
       description.join("\n")
+    end
+
+    def first_sentence(string)
+      string.gsub(/^(.*?\.(\z|\s))/m) do |match|
+        return $1.gsub("\n",' ').strip
+      end
+      return nil
     end
   end
 
