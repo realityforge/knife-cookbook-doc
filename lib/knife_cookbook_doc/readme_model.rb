@@ -24,7 +24,10 @@ module KnifeCookbookDoc
         end
       else
         Dir["#{cookbook_dir}/recipes/*.rb"].sort.each do |recipe_filename|
-          @recipes << RecipeModel.new("#{@metadata.name}::#{File.basename(recipe_filename, ".rb")}", recipe_filename)
+          base_name = File.basename(recipe_filename, ".rb")
+          if !base_name.start_with?("_")
+            @recipes << RecipeModel.new("#{@metadata.name}::#{base_name}", recipe_filename)
+          end
         end
       end
       @metadata = @metadata
