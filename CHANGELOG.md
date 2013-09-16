@@ -1,3 +1,10 @@
+v0.4.0 (Sep 16 2013)
+--------------------
+
+* Scan the recipes directory for recipes if no recipes are declared in the metadata.rb (Skipping recipes with a name starting with '_'). Submitted by Jarek Gawor.
+* Scan the attributes files if no attributes are declared in the metadata.rb and collect descriptions from comments. Submitted by Jarek Gawor.
+* Descriptions scanned from source files should expect the . separator to be followed by a space. Submitted by Jarek Gawor.
+
 v0.3.0 (Apr 1 2013)
 --------------------
 
