@@ -129,4 +129,5 @@ The documentation stored in comments comes in three forms;
 The plugin was originally written by Mathias Lafeldt as a way to create
 initial README.md from the metadata.rb. It was subsequently rewritten by
 Peter Donald to gather information from the other files within the cookbook.
-All credit to Mathias for his wonderful idea.
+All credit to Mathias for his wonderful idea. Jarek Gawor has also submitted
+several major changes.
