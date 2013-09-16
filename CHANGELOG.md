@@ -1,3 +1,8 @@
+v0.5.0 (Sep 16 2013)
+--------------------
+
+* Re-push gem with correct set of changes to rubygems.
+
 v0.4.0 (Sep 16 2013)
 --------------------
 
