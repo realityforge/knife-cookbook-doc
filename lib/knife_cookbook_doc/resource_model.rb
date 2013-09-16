@@ -65,7 +65,7 @@ module KnifeCookbookDoc
     end
 
     def first_sentence(string)
-      string.gsub(/^([^.]*?\.)/m) do |match|
+      string.gsub(/^(.*?\.(\z|\s))/m) do |match|
         return $1.gsub("\n",' ').strip
       end
       return nil

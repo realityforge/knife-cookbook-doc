@@ -7,6 +7,21 @@ module KnifeCookbookDoc
       @metadata = Chef::Cookbook::Metadata.new
       @metadata.from_file("#{cookbook_dir}/metadata.rb")
 
+      if !@metadata.attributes.empty?
+        @attributes = @metadata.attributes.map do |attr, options|
+          name = "node['#{attr.gsub("/", "']['")}']"
+          [name, options['description'], options['default'], options['choice']]
+        end
+      else
+        @attributes = []
+        Dir["#{cookbook_dir}/attributes/*.rb"].sort.each do |attribute_filename|
+          model = AttributesModel.new(attribute_filename)
+          if !model.attributes.empty?
+            @attributes += model.attributes
+          end
+        end        
+      end
+
       @resources = []
       Dir["#{cookbook_dir}/resources/*.rb"].sort.each do |resource_filename|
         @resources << ResourceModel.new(@metadata.name, resource_filename)
@@ -18,8 +33,17 @@ module KnifeCookbookDoc
       end
 
       @recipes = []
-      @metadata.recipes.each do |name, description|
-        @recipes << RecipeModel.new(name, description, "#{cookbook_dir}/recipes/#{name.gsub(/^.*\:(.*)$/,'\1')}.rb")
+      if !@metadata.recipes.empty?
+        @metadata.recipes.each do |name, description|
+          @recipes << RecipeModel.new(name, description, "#{cookbook_dir}/recipes/#{name.gsub(/^.*\:(.*)$/,'\1')}.rb")
+        end
+      else
+        Dir["#{cookbook_dir}/recipes/*.rb"].sort.each do |recipe_filename|
+          base_name = File.basename(recipe_filename, ".rb")
+          if !base_name.start_with?("_")
+            @recipes << RecipeModel.new("#{@metadata.name}::#{base_name}", recipe_filename)
+          end
+        end
       end
       @metadata = @metadata
       @constraints = constraints
@@ -68,10 +92,7 @@ module KnifeCookbookDoc
     end
 
     def attributes
-      @metadata.attributes.map do |attr, options|
-        name = "node['#{attr.gsub("/", "']['")}']"
-        [name, options['description'], options['default'], options['choice']]
-      end
+      @attributes
     end
 
     def recipes
