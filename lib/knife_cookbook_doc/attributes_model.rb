@@ -25,9 +25,9 @@ module KnifeCookbookDoc
         name = get_attribute_name($1)
         value = $2.strip
 
-        if value.starts_with?("{")
+        if value.start_with?("{")
           value = "{ ... }"
-        elsif  value.starts_with?("[") 
+        elsif  value.start_with?("[")
           value = "[ ... ]"
         else
           value = value.gsub(/\A\"|\A'|\"\Z|'\Z/, '')

@@ -1,3 +1,8 @@
+v0.6.0  (Oct 7 2013)
+--------------------
+
+* Fix bug in attributes model due to incorrectly named method call. Reported by Jared Russell.
+
 v0.5.0 (Sep 16 2013)
 --------------------
 
