@@ -16,8 +16,10 @@ it's currency.
 
 Populate the `metadata.rb` of your cookbook according to Opscode's
 [documentation](http://docs.opscode.com/config_rb_metadata.html). Particular
-attention should be paid to documenting the recipes, attributes, platform
-compatibility and cookbook requirements (i.e. depends, recommends, suggests etc).
+attention should be paid to documenting the platform compatibility and
+cookbook requirements (i.e. depends, recommends, suggests etc). Documentation
+for attributes and recipes can either be derived from scanning the source
+code or by explicit declaration in `metadata.rb`.
 
 #### Step 2
 
@@ -28,6 +30,19 @@ At the top of each recipe, add a detailed documentation section such as;
     The recipe is awesome. It does thing 1, thing 2 and thing 3!
     #>
     =end
+
+If the user has not specified documentation for the recipe in `metadata.rb`
+then the tool takes the first sentence of the detailed documentation as the
+summary to use in the table of contents.
+
+#### Step 2
+
+If the user has not specified documentation for the attributes in `metadata.rb`
+then the tool scans the attribute files and uses the documentation block
+preceding the attribute.
+
+    #<> MyApp Admin Group: The group allowed to manage MyApp.
+    default['myapp']['group'] = 'myapp-admin'
 
 #### Step 3
 
