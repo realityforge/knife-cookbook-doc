@@ -1,3 +1,8 @@
+v0.7.0 (Oct 13 2013)
+--------------------
+
+* Add some basic documentation regarding scanning documentation for attributes.
+
 v0.6.0  (Oct 7 2013)
 --------------------
 
