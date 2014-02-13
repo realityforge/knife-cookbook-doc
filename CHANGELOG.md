@@ -1,3 +1,8 @@
+v0.8.0 (Feb 14 2014)
+--------------------
+
+* Fix compatibility with Chef 11.8.0. Submitted by Ben Langfeld.
+
 v0.7.0 (Oct 13 2013)
 --------------------
 
