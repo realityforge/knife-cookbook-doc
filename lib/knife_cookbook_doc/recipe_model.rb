@@ -33,7 +33,7 @@ module KnifeCookbookDoc
           top_level_descriptions[current_section] = lines
         end
       end
-      if @short_description.nil? 
+      if @short_description.nil?
         @short_description = first_sentence(description) || ""
       end
     end
@@ -60,29 +60,6 @@ module KnifeCookbookDoc
         return $1.gsub("\n",' ').strip
       end
       return nil
-    end
-  end
-
-  class DocumentingLWRPBase < ::Chef::Resource::LWRPBase
-
-    class << self
-      def attribute_specifications
-        @attribute_specifications ||= {}
-      end
-
-      def desc(description)
-        @description = "#{@description}#{description}\n"
-      end
-
-      def description
-        @description || ""
-      end
-    end
-
-    def self.attribute(attr_name, validation_opts={})
-      result = super(attr_name, validation_opts)
-      attribute_specifications[attr_name] = validation_opts
-      result
     end
   end
 end
