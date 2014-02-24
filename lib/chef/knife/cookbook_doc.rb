@@ -39,6 +39,8 @@ module KnifeCookbookDoc
         exit(1)
       end
 
+      cookbook_dir = File.realpath(cookbook_dir)
+
       model = ReadmeModel.new(cookbook_dir, config[:constraints])
 
       template = File.read(config[:template_file])
