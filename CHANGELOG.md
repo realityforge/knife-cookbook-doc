@@ -1,3 +1,8 @@
+v0.9.0 (Feb 24 2014)
+--------------------
+
+* Convert cookbook_dir to real path to ensure the plugin works in alternative shells such as powershell. Submitted by zhelyan.
+
 v0.8.0 (Feb 14 2014)
 --------------------
 
