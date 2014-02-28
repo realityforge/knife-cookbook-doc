@@ -1,5 +1,6 @@
 module KnifeCookbookDoc
   class RecipeModel
+    include KnifeCookbookDoc::BaseModel
 
     attr_reader :name
     attr_reader :short_description
@@ -9,14 +10,6 @@ module KnifeCookbookDoc
       @short_description = short_description
       @filename = filename
       load_descriptions
-    end
-
-    def top_level_description(section)
-      (top_level_descriptions[section.to_s] || []).join("\n").gsub(/\n+$/m,"\n")
-    end
-
-    def top_level_descriptions
-      @top_level_descriptions ||= {}
     end
 
     private
@@ -39,27 +32,5 @@ module KnifeCookbookDoc
     end
 
     include ::Chef::Mixin::ConvertToClassName
-
-    def extract_description
-      description = []
-      IO.read(@filename).gsub(/^=begin *\n *\#\<\n(.*?)^ *\#\>\n=end *\n/m) do
-        description << $1
-        ""
-      end.gsub(/^ *\#\<\n(.*?)^ *\#\>\n/m) do
-        description << $1.gsub(/^ *\# ?/, '')
-        ""
-      end.gsub(/^ *\#\<\> (.*?)$/) do
-        description << $1
-        ""
-      end
-      description.join("\n")
-    end
-
-    def first_sentence(string)
-      string.gsub(/^(.*?\.(\z|\s))/m) do |match|
-        return $1.gsub("\n",' ').strip
-      end
-      return nil
-    end
   end
 end

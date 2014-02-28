@@ -6,6 +6,8 @@ module KnifeCookbookDoc
     deps do
       require 'chef/cookbook/metadata'
       require 'erubis'
+      require 'knife_cookbook_doc/base_model'
+      require 'knife_cookbook_doc/definitions_model'
       require 'knife_cookbook_doc/readme_model'
       require 'knife_cookbook_doc/recipe_model'
       require 'knife_cookbook_doc/resource_model'
@@ -15,22 +17,22 @@ module KnifeCookbookDoc
     banner 'knife cookbook doc DIR (options)'
 
     option :constraints,
-           :short       => '-c',
-           :long        => '--constraints',
-           :boolean     => true,
-           :default     => true,
+           :short => '-c',
+           :long => '--constraints',
+           :boolean => true,
+           :default => true,
            :description => 'Include version constraints for platforms and dependencies'
 
     option :output_file,
-           :short       => '-o',
-           :long        => '--output-file FILE',
-           :default     => 'README.md',
+           :short => '-o',
+           :long => '--output-file FILE',
+           :default => 'README.md',
            :description => 'Set the output file to render to relative to cookbook dir. Defaults to README.md'
 
     option :template_file,
-           :short       => '-t',
-           :long        => '--template FILE',
-           :default     => Pathname.new("#{File.dirname(__FILE__)}/README.md.erb").realpath,
+           :short => '-t',
+           :long => '--template FILE',
+           :default => Pathname.new("#{File.dirname(__FILE__)}/README.md.erb").realpath,
            :description => 'Set template file used to render README.md'
 
     def run
@@ -47,7 +49,7 @@ module KnifeCookbookDoc
       eruby = Erubis::Eruby.new(template)
       result = eruby.result(model.get_binding)
 
-      File.open("#{cookbook_dir}/#{config[:output_file]}",'wb') do |f|
+      File.open("#{cookbook_dir}/#{config[:output_file]}", 'wb') do |f|
         f.write result
       end
     end
