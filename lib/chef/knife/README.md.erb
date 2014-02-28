@@ -92,8 +92,8 @@
 <% unless definition.params.empty? %>
 ### Parameters
 
-<% definition.params.each do |param, desc| -%>
-- <%= param %>: <%= desc %>
+<% definition.params.each do |param, data| -%>
+- <%= param %>: <%= data['descr'] %>.<% if data['default']%> Defaults to: <%=data['default']%><%end%>
 <% end -%>
 <% end -%>
 <% definition.top_level_descriptions.keys.select{|k| k != 'main'}.each do |key| -%>
