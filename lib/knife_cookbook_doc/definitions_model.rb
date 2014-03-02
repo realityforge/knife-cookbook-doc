@@ -49,4 +49,3 @@ module KnifeCookbookDoc
     end
   end
 end
-
