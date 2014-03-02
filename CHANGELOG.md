@@ -1,3 +1,9 @@
+v0.10.0 (Mar 3 2014)
+--------------------
+
+* Add support for generating documentation for definitions. Submitted by zhelyan.
+* Remove end of line whitespace in generated README
+
 v0.9.0 (Feb 24 2014)
 --------------------
 
