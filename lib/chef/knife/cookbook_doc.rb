@@ -51,7 +51,10 @@ module KnifeCookbookDoc
       result = eruby.result(model.get_binding)
 
       File.open("#{cookbook_dir}/#{config[:output_file]}", 'wb') do |f|
-        f.write result
+        result.each_line do |line|
+          f.write line.gsub(/[ \t\r\n]*$/,'')
+          f.write "\n"
+        end
       end
     end
   end
