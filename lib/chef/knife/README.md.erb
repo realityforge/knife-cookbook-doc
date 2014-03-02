@@ -78,18 +78,18 @@
 <% unless definitions.empty? -%>
 # Definitions
 
-<% definitions.each do |definition| %>
+<% definitions.each do |definition| -%>
 * [<%= definition.name %>](#<%= definition.name %>)<% if definition.short_description %> - <%= definition.short_description %><% end %>
-<% end %>
+<% end -%>
 
-<% definitions.each do |definition| %>
-## <%=definition.name%>
+<% definitions.each do |definition| -%>
+## <%= definition.name %>
 
 <% if definition.top_level_description('main') != '' -%>
 <%= definition.top_level_description('main') -%>
 <% end -%>
 
-<% unless definition.params.empty? %>
+<% unless definition.params.empty? -%>
 ### Parameters
 
 <% definition.params.each do |param, data| -%>
@@ -102,10 +102,8 @@
 
 <%= definition.top_level_description(key) -%>
 <% end -%>
-<% end %>
-<% end %>
-
-
+<% end -%>
+<% end -%>
 
 <% unless resources.empty? -%>
 # Resources
