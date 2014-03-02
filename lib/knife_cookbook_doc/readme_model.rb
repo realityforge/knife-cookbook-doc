@@ -27,6 +27,11 @@ module KnifeCookbookDoc
         @resources << ResourceModel.new(@metadata.name, resource_filename)
       end
 
+      @definitions = []
+      Dir["#{cookbook_dir}/definitions/*.rb"].sort.each do |def_filename|
+        @definitions << DefinitionsModel.new(File.basename(def_filename, '.*'), def_filename)
+      end
+
       @fragments = {}
       Dir["#{cookbook_dir}/doc/*.md"].sort.each do |resource_filename|
         @fragments[::File.basename(resource_filename,'.md')] = IO.read(resource_filename)
@@ -55,6 +60,10 @@ module KnifeCookbookDoc
 
     def resources
       @resources
+    end
+
+    def definitions
+      @definitions
     end
 
     def description

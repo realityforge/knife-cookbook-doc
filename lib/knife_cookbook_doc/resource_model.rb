@@ -2,6 +2,7 @@ require 'knife_cookbook_doc/documenting_lwrp_base'
 
 module KnifeCookbookDoc
   class ResourceModel
+    include KnifeCookbookDoc::BaseModel
 
     attr_reader :native_resource
 
@@ -57,28 +58,6 @@ module KnifeCookbookDoc
 
     def attribute_descriptions
       @attribute_descriptions ||= {}
-    end
-
-    def short_description
-      unless @short_description
-        @short_description = first_sentence(top_level_description('main'))
-      end
-      @short_description
-    end
-
-    def first_sentence(string)
-      string.gsub(/^(.*?\.(\z|\s))/m) do |match|
-        return $1.gsub("\n",' ').strip
-      end
-      return nil
-    end
-
-    def top_level_description(section)
-      (top_level_descriptions[section.to_s] || []).join("\n").gsub(/\n+$/m,"\n")
-    end
-
-    def top_level_descriptions
-      @top_level_descriptions ||= {}
     end
 
     private

@@ -74,6 +74,39 @@
 *No recipes defined*
 
 <% end -%>
+
+<% unless definitions.empty? -%>
+# Definitions
+
+<% definitions.each do |definition| %>
+* [<%= definition.name %>](#<%= definition.name %>)<% if definition.short_description %> - <%= definition.short_description %><% end %>
+<% end %>
+
+<% definitions.each do |definition| %>
+## <%=definition.name%>
+
+<% if definition.top_level_description('main') != '' -%>
+<%= definition.top_level_description('main') -%>
+<% end -%>
+
+<% unless definition.params.empty? %>
+### Parameters
+
+<% definition.params.each do |param, data| -%>
+- <%= param %>: <%= data['descr'] %>.<% if data['default']%> Defaults to: <%=data['default']%><%end%>
+<% end -%>
+<% end -%>
+<% definition.top_level_descriptions.keys.select{|k| k != 'main'}.each do |key| -%>
+
+### <%= key -%>
+
+<%= definition.top_level_description(key) -%>
+<% end -%>
+<% end %>
+<% end %>
+
+
+
 <% unless resources.empty? -%>
 # Resources
 
