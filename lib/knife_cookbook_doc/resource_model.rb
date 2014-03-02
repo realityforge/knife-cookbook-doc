@@ -1,5 +1,3 @@
-require 'knife_cookbook_doc/documenting_lwrp_base'
-
 module KnifeCookbookDoc
   class ResourceModel
     include KnifeCookbookDoc::BaseModel

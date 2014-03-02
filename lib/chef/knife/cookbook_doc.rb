@@ -7,6 +7,7 @@ module KnifeCookbookDoc
       require 'chef/cookbook/metadata'
       require 'erubis'
       require 'knife_cookbook_doc/base_model'
+      require 'knife_cookbook_doc/documenting_lwrp_base'
       require 'knife_cookbook_doc/definitions_model'
       require 'knife_cookbook_doc/readme_model'
       require 'knife_cookbook_doc/recipe_model'
