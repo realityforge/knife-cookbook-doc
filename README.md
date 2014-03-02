@@ -80,6 +80,28 @@ to the end of the LWRP documentation.
 
 #### Step 4
 
+In each definition add documentation like:
+
+      =begin
+        #<
+        This definition does something useful.
+
+        @param user User to run as.
+        @param group User group to run as.
+
+        @section Examples
+
+            # An example of my awesome service
+            mycookbook_awesome_definition "app resources" do
+              user 'appuser'
+              group 'appgroup'
+            end
+        #>
+      =end
+
+
+#### Step 5
+
 Finally the user should add some documentation fragments into the `doc/` dir.
 Most importantly you should add `doc/overview.md` which will replace the first
 `Description` section of the readme. You should also add a `doc/credit.md` which
