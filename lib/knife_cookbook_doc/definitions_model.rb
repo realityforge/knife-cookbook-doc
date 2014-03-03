@@ -37,7 +37,7 @@ module KnifeCookbookDoc
       code = IO.read(@filename)
       code.gsub(/^ *define (.*?) (?=do)/m) do
         all = $1.split(' ', 2)
-        @name = all.shift.gsub(/:/, '')
+        @name = all.shift.gsub(/:|,/, '')
         next if all.empty?
         all = eval("{#{all.last}}") rescue {}
         all.each do |k, v|
