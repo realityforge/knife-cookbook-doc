@@ -35,7 +35,7 @@ If the user has not specified documentation for the recipe in `metadata.rb`
 then the tool takes the first sentence of the detailed documentation as the
 summary to use in the table of contents.
 
-#### Step 2
+#### Step 3
 
 If the user has not specified documentation for the attributes in `metadata.rb`
 then the tool scans the attribute files and uses the documentation block
@@ -44,7 +44,7 @@ preceding the attribute.
     #<> MyApp Admin Group: The group allowed to manage MyApp.
     default['myapp']['group'] = 'myapp-admin'
 
-#### Step 3
+#### Step 4
 
 In each LWRP, add detailed documentation such as;
 
@@ -78,7 +78,7 @@ The other text will be added at the start of the LWRP documentation
 except if marked with `@section <heading>`, in which case it will be added
 to the end of the LWRP documentation.
 
-#### Step 4
+#### Step 5
 
 In each definition add documentation like:
 
@@ -91,7 +91,7 @@ In each definition add documentation like:
 
         @section Examples
 
-            # An example of my awesome service
+            # An example of my awesome definition
             mycookbook_awesome_definition "app resources" do
               user 'appuser'
               group 'appgroup'
@@ -100,7 +100,7 @@ In each definition add documentation like:
       =end
 
 
-#### Step 5
+#### Step 6
 
 Finally the user should add some documentation fragments into the `doc/` dir.
 Most importantly you should add `doc/overview.md` which will replace the first
