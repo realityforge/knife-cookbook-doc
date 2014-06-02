@@ -12,7 +12,7 @@ Pester us if we don't get your Pull Requests merged in a timely fashion. :)
 
 ## How to speed the merging of pull requests
 
-* Describe your changes in the CHANGELOG. 
+* Describe your changes in the CHANGELOG.
 * Give yourself some credit in the appropriate place (usually the CHANGELOG).
 * Make commits of logical units.
 * Ensure your commit messages help others understand what you are doing and why.

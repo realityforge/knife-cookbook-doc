@@ -19,7 +19,7 @@ module KnifeCookbookDoc
           if !model.attributes.empty?
             @attributes += model.attributes
           end
-        end        
+        end
       end
 
       @resources = []

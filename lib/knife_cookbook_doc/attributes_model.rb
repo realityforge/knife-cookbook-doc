@@ -32,7 +32,7 @@ module KnifeCookbookDoc
         else
           value = value.gsub(/\A\"|\A'|\"\Z|'\Z/, '')
         end
-        
+
         options = {}
         options[:default] = value
         @attributes[name] = options
@@ -50,7 +50,7 @@ module KnifeCookbookDoc
       end
     end
 
-    def update_attribute(name, description) 
+    def update_attribute(name, description)
       name = get_attribute_name(name)
       options = @attributes[name]
       options[:description] = description.strip
