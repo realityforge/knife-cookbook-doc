@@ -1,3 +1,6 @@
+v0.11.0 (Jun 5 2014)
+--------------------
+
 * Be honest about attribute types. Submitted by benlangfeld.
 
 v0.10.0 (Mar 3 2014)
