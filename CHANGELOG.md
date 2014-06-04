@@ -1,3 +1,5 @@
+* Be honest about attribute types. Submitted by benlangfeld.
+
 v0.10.0 (Mar 3 2014)
 --------------------
 
