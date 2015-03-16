@@ -1,6 +1,9 @@
 v0.13.0     (Pending)
 ---------------------
 
+* Fix get_attribute_name to use the newly supplied precedent level. Submitted By Drew Blessing.
+* Further refinements for multi-line attributes. Submitted By Drew Blessing.
+
 v0.12.0 (Mar 17 2015)
 ---------------------
 
