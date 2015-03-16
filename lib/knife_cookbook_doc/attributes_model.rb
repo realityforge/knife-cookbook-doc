@@ -1,7 +1,7 @@
 module KnifeCookbookDoc
   class AttributesModel
 
-    ATTRIBUTE_REGEX = "(^\s*default.*?)=(.*?)$".freeze
+    ATTRIBUTE_REGEX = "(^\s*(?:default|set|force_default|override|force_override).*?)=\s*(.*?)$".freeze
 
     def initialize(filename)
       @filename = filename
