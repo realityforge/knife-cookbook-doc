@@ -1,6 +1,10 @@
 v0.12.0    (Pending)
 --------------------
 
+* Improve regex that matches attributes to support all 5 precedent
+  specifiers and also supports multiline definitions. This is backwards
+	compatible. Submitted By Drew Blessing.
+
 v0.11.0 (Jun 5 2014)
 --------------------
 
