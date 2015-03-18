@@ -1,4 +1,5 @@
 # v0.14.0 (Pending)
+* Fix the default values emitted in documentation.
 
 # v0.13.0 (Mar 17 2015)
 
