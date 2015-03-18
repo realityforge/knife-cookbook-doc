@@ -1,4 +1,6 @@
 # v0.14.0 (Pending)
+
+* Further bug-fixes for multi-line attributes. Submitted By Drew Blessing.
 * Fix the default values emitted in documentation.
 
 # v0.13.0 (Mar 17 2015)
