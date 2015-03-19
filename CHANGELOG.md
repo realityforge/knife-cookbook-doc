@@ -1,3 +1,8 @@
+# v0.15.0 (Mar 20 2015)
+
+* Further bug-fixes for multi-line attributes. Submitted By Drew Blessing.
+* Introduce automated testing infrastructure. Submitted By Drew Blessing.
+
 # v0.14.0 (Mar 17 2015)
 
 * Further bug-fixes for multi-line attributes. Submitted By Drew Blessing.
