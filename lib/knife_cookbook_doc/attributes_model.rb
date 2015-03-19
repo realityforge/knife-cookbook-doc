@@ -39,10 +39,10 @@ module KnifeCookbookDoc
       end
 
       # get/parse comments
-      resource_data = resource_data.gsub(/^=begin\s*\n\s*\#\<\s*\n(.*?)\n^\s*\#\>\n=end\s*\n#{ATTRIBUTE_REGEX}/) do
+      resource_data = resource_data.gsub(/^=begin\s*\n\s*\#\<\s*\n(.*?)^\s*\#\>\n=end\s*\n#{ATTRIBUTE_REGEX}/m) do
         update_attribute($2, $1)
       end
-      resource_data = resource_data.gsub(/^\s*\#\<\n(.*?)\n^\s*\#\>\n#{ATTRIBUTE_REGEX}/) do
+      resource_data = resource_data.gsub(/^\s*\#\<\n(.*?)^\s*\#\>\n#{ATTRIBUTE_REGEX}/m) do
         update_attribute($2, $1.gsub(/^\s*\# ?/, ''))
       end
       resource_data = resource_data.gsub(/^\s*\#\<\>\s(.*?$)\n#{ATTRIBUTE_REGEX}/) do
