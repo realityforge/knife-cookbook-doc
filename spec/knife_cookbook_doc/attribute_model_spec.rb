@@ -3,8 +3,7 @@ require 'spec_helper'
 describe KnifeCookbookDoc::AttributesModel do
   describe '#load_descriptions' do
     before do
-      allow(IO)
-        .to receive(:read).with('attributes/default.rb').and_return(attributes)
+      allow(IO).to receive(:read).with('attributes/default.rb').and_return(attributes)
     end
     let(:attributes) {
 <<EOS
