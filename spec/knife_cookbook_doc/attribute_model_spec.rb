@@ -20,6 +20,7 @@ default['knife_cookbook_doc']['attr2'] = 'attr2_value'
 #<
 Multiline begin/end with single line of text
 #>
+=end
 default['knife_cookbook_doc']['attr3'] = 'attr3_value'
 
 #<
@@ -33,6 +34,7 @@ default['knife_cookbook_doc']['attr4'] = 'attr4_value'
 Multiline begin/end with
 multiple lines of text
 #>
+=end
 default['knife_cookbook_doc']['attr5'] = 'attr5_value'
 EOS
     }
