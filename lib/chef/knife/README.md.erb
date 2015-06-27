@@ -149,6 +149,12 @@
 # License and Maintainer
 
 Maintainer:: <%= maintainer %> (<<%= maintainer_email %>>)
+<% unless source_url.empty? -%>
+<%= 'Source:: ' + source_url %>
+<% end -%>
+<% unless issues_url.empty? -%>
+<%= 'Issues:: ' + issues_url %> 
+<% end -%>
 
 License:: <%= license %>
 <% else -%>
