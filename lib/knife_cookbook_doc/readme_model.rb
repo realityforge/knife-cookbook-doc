@@ -66,8 +66,28 @@ module KnifeCookbookDoc
       @definitions
     end
 
+    def cookbook_name
+      @metadata.name
+    end
+
     def description
       @metadata.description
+    end
+
+    def source_url
+      if @metadata.methods.include? :source_url
+        @metadata.source_url
+      else
+        return ""
+      end
+    end
+
+    def issues_url
+      if @metadata.methods.include? :issues_url
+        @metadata.issues_url
+      else
+        return ""
+      end  
     end
 
     def platforms
