@@ -78,7 +78,7 @@ module KnifeCookbookDoc
       if @metadata.methods.include? :source_url
         @metadata.source_url
       else
-        return ""
+        ""
       end
     end
 
@@ -86,7 +86,7 @@ module KnifeCookbookDoc
       if @metadata.methods.include? :issues_url
         @metadata.issues_url
       else
-        return ""
+        ""
       end  
     end
 
