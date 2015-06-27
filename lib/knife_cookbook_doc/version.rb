@@ -1,3 +1,3 @@
 module KnifeCookbookDoc
-  VERSION = '1.0.0'
+  VERSION = '0.16.0-dev'
 end
