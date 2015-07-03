@@ -1,5 +1,7 @@
 # v0.16.0 (Pending)
 
+* Allow '# <' and '# >' for doc block comments. Submitted by Mark Ayers.
+
 # v0.15.0 (Mar 20 2015)
 
 * Further bug-fixes for multi-line attributes. Submitted By Drew Blessing.

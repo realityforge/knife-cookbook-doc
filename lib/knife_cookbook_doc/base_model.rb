@@ -27,13 +27,13 @@ module KnifeCookbookDoc
 
     def extract_description
       description = []
-      IO.read(@filename).gsub(/^=begin *\n *\#\<\n(.*?)^ *\#\>\n=end *\n/m) do
+      IO.read(@filename).gsub(/^=begin *\n *\# ?\<\n(.*?)^ *\# ?\>\n=end *\n/m) do
         description << $1
         ""
-      end.gsub(/^ *\#\<\n(.*?)^ *\#\>\n/m) do
+      end.gsub(/^ *\# ?\<\n(.*?)^ *\# ?\>\n/m) do
         description << $1.gsub(/^ *\# ?/, '')
         ""
-      end.gsub(/^ *\#\<\> (.*?)$/) do
+      end.gsub(/^ *\# ?\<\> (.*?)$/) do
         description << $1
         ""
       end
