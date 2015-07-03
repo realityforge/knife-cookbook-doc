@@ -87,7 +87,7 @@ module KnifeCookbookDoc
         @metadata.issues_url
       else
         ""
-      end  
+      end
     end
 
     def platforms
@@ -138,6 +138,10 @@ module KnifeCookbookDoc
 
     def license
       @metadata.license
+    end
+
+    def name
+      @metadata.name
     end
 
     def get_binding
