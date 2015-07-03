@@ -1,5 +1,8 @@
 # v0.16.0 (Pending)
 
+* Expose metadata name value. Submitted by Mark Ayers.
+* No longer capitalize the platform. Submitted by Mark Ayers.
+
 # v0.15.0 (Mar 20 2015)
 
 * Further bug-fixes for multi-line attributes. Submitted By Drew Blessing.

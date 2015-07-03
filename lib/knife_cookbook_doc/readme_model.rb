@@ -87,12 +87,12 @@ module KnifeCookbookDoc
         @metadata.issues_url
       else
         ""
-      end  
+      end
     end
 
     def platforms
       @metadata.platforms.map do |platform, version|
-        format_constraint(platform.capitalize, version)
+        format_constraint(platform, version)
       end
     end
 
@@ -138,6 +138,10 @@ module KnifeCookbookDoc
 
     def license
       @metadata.license
+    end
+
+    def name
+      @metadata.name
     end
 
     def get_binding
