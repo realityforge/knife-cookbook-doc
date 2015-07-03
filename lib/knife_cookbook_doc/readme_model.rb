@@ -92,7 +92,7 @@ module KnifeCookbookDoc
 
     def platforms
       @metadata.platforms.map do |platform, version|
-        format_constraint(platform.capitalize, version)
+        format_constraint(platform, version)
       end
     end
 
