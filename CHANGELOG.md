@@ -1,5 +1,7 @@
 # v0.16.0 (Pending)
 
+* Travis CI testing, and test matrix. Submitted by Mark Ayers.
+* Added badges to README. Submitted by Mark Ayers.
 * Expose metadata name value. Submitted by Mark Ayers.
 * No longer capitalize the platform. Submitted by Mark Ayers.
 * Allow '# <' and '# >' for doc block comments. Submitted by Mark Ayers.

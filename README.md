@@ -1,5 +1,12 @@
 # knife-cookbook-doc
 
+[![Build Status](http://img.shields.io/travis/realityforge/knife-cookbook-doc.svg)](https://travis-ci.org/realityforge/knife-cookbook-doc)
+[![Code Climate](https://codeclimate.com/github/realityforge/knife-cookbook-doc/badges/gpa.svg)](https://codeclimate.com/github/realityforge/knife-cookbook-doc)
+[![Gem Version](https://badge.fury.io/rb/knife-cookbook-doc.svg)](http://badge.fury.io/rb/knife-cookbook-doc)
+[![Dependency Status](https://gemnasium.com/realityforge/knife-cookbook-doc.svg)](https://gemnasium.com/realityforge/knife-cookbook-doc)
+[![Inline docs](http://inch-ci.org/github/realityforge/knife-cookbook-doc.svg)](http://inch-ci.org/github/realityforge/knife-cookbook-doc)
+
+
 This is a knife plugin to help create and maintain a README.md for a cookbook.
 As much as possible the plugin makes use of the same metadata as used by chef
 when generating the documentation. The plugin will also scan the source files
@@ -160,6 +167,33 @@ The documentation stored in comments comes in three forms;
     # This is some documentation
     #>
 
+## Version Testing and Support Matrix
+
+This knife plugin is tested against multiple MRI Ruby versions and multiple
+Chef versions. We aim to test against the lastest patch version of each minor
+version of Chef Client's knife. See the `.travis.yml` for more complete detail.
+
+```
+|   Chef   | MRI Ruby |         |         |
+| version  |   2.0    |   2.1   |   2.2   |
+|----------|----------|---------|---------|
+| master   | perhaps  | perhaps | perhaps |
+| 12.4.1   | yes      | yes     | yes     |
+| 12.3.0   | yes      | yes     | yes     |
+| 12.2.1   | yes      | yes     | yes     |
+| 12.1.2   | yes      | yes     | yes     |
+| 12.0.3   | yes      | yes     | yes     |
+| 11.18.12 | yes      | yes     | yes     |
+| 11.16.4  | yes      | yes     | yes     |
+| 11.14.6  | yes      | yes     | yes     |
+| 11.12.8  | yes      | yes     | yes     |
+| 11.10.4  | yes      | yes     | yes     |
+| 11.8.2   | yes      | yes     | no      |
+| 11.6.2   | yes      | yes     | no      |
+| 11.4.4   | yes      | yes     | no      |
+| 11.2.0   | yes      | yes     | no      |
+| 11.0.0   | yes      | yes     | no      |
+```
 
 ## Credit
 
