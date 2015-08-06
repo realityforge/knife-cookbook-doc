@@ -8,7 +8,7 @@
 
 ## Platform:
 
-* Cookbook-authors
+* cookbook-authors
 
 ## Cookbooks:
 
