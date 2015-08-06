@@ -1,4 +1,4 @@
-# v0.16.0 (Pending)
+# v0.16.0 (Aug 6 2015)
 
 * Travis CI testing, and test matrix. Submitted by Mark Ayers.
 * Added badges to README. Submitted by Mark Ayers.
