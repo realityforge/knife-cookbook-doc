@@ -13,7 +13,7 @@ require 'knife_cookbook_doc/attributes_model'
 
 module KnifeCookbookDoc
   class RakeTask < ::Rake::TaskLib
-    attr_accessor :name
+    attr_accessor :name, :options
 
     def initialize(name = :knife_cookbook_doc)
       @name = name
@@ -25,14 +25,14 @@ module KnifeCookbookDoc
     def define
       desc 'Generate cookbook documentation' unless ::Rake.application.last_comment
       task(name) do
-        options = @options.merge(default_options)
-        cookbook_dir = File.realpath(options[:cookbook_dir])
-        model = ReadmeModel.new(cookbook_dir, options[:constraints])
-        template = File.read(options[:template_file])
+        merged_options = default_options.merge(options)
+        cookbook_dir = File.realpath(merged_options[:cookbook_dir])
+        model = ReadmeModel.new(cookbook_dir, merged_options[:constraints])
+        template = File.read(merged_options[:template_file])
         eruby = Erubis::Eruby.new(template)
         result = eruby.result(model.get_binding)
 
-        File.open("#{cookbook_dir}/#{options[:output_file]}", 'wb') do |f|
+        File.open("#{cookbook_dir}/#{merged_options[:output_file]}", 'wb') do |f|
           result.each_line do |line|
             f.write line.gsub(/[ \t\r\n]*$/,'')
             f.write "\n"
