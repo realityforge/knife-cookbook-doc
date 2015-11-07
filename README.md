@@ -143,6 +143,21 @@ Afterwards, the new knife command `knife cookbook doc DIR` will be available.
         knife cookbook doc path/to/cookbook
         knife cookbook doc path/to/cookbook --template README.md.erb
 
+Alternatively, you can execute cookbook doc directly from your Rakefile:
+
+    require 'knife_cookbook_doc/rake_task'
+
+    # With default options
+    KnifeCookbookDoc::RakeTask.new(:doc)
+
+    # Example with custom options
+    KnifeCookbookDoc::RakeTask.new(:doc) do |t|
+      t.options[:cookbook_dir] = './'
+      t.options[:constraints] = true
+      t.options[:output_file] = 'README.md'
+      t.options[:template_file] = "#{File.dirname(__FILE__)}/templates/README.md.erb"
+    end
+
 ## Further Details
 
 ### Documentation in comments
