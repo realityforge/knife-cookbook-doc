@@ -39,7 +39,6 @@ This resource is awesome.
 ### Actions
 
 - stuff: Does awesome things. Default action.
-- nothing:
 
 ### Attribute Parameters
 

@@ -14,6 +14,7 @@ module KnifeCookbookDoc
     end
 
     # Return the unique set of actions, with the default one first, if there is a single default
+    # The :nothing action will show up only if it is the only one, or it is  explicitly  documented
     def actions
       return @actions unless @actions.nil?
 
@@ -22,6 +23,8 @@ module KnifeCookbookDoc
       else
         @actions = [default_action].compact + @native_resource.actions.sort.uniq.select { |a| a != default_action }
       end
+
+      @actions.delete(:nothing) if @actions != [:nothing] && action_descriptions[:nothing].nil?
       @actions
     end
 
