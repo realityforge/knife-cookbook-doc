@@ -13,16 +13,22 @@ module KnifeCookbookDoc
       @native_resource.resource_name
     end
 
-    # Return the unique set of actions, with the default one first, if there is a default
+    # Return the unique set of actions, with the default one first, if there is a single default
     def actions
-      unless @actions
+      return @actions unless @actions.nil?
+
+      if default_action.is_a?(Array)
+        @actions = @native_resource.actions
+      else
         @actions = [default_action].compact + @native_resource.actions.sort.uniq.select { |a| a != default_action }
       end
       @actions
     end
 
     def default_action
-      @native_resource.default_action
+      action = @native_resource.default_action
+      return action.first if action.is_a?(Array) && action.length == 1
+      action
     end
 
     def action_description(action)

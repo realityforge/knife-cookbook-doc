@@ -120,8 +120,11 @@
 <% unless resource.actions.empty? -%>
 ### Actions
 
+<% if resource.default_action.is_a?(Array) %>
+- Default actions: [<%= resource.default_action.join ', ' %>]
+<% end %>
 <% resource.actions.each do |action| -%>
-- <%= action %>: <%= resource.action_description(action) %><% if resource.default_action == action %> Default action.<% end %>
+- <%= action %>: <%= resource.action_description(action) %><% if !resource.default_action.is_a?(Array) && resource.default_action == action %> Default action.<% end %>
 <% end -%>
 <% end -%>
 <% unless resource.attributes.empty? -%>
