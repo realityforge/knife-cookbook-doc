@@ -18,7 +18,7 @@ class DocumentingLWRPBase < ::Chef::Resource::LWRPBase
     NOT_PASSED = defined?(::Chef::NOT_PASSED) ? ::Chef::NOT_PASSED : "NOT_PASSED"
     def property(name, type = NOT_PASSED, **options)
       attribute_specifications[name] = options
-      result = super(name, type, **options) if defined?(super)
+      super(name, type, **options) if defined?(super)
     end
   end
 
