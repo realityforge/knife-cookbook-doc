@@ -14,6 +14,12 @@ class DocumentingLWRPBase < ::Chef::Resource::LWRPBase
     def description
       @description || ""
     end
+
+    def property(name, type = ::Chef::NOT_PASSED, **options)
+      result = super(name, type, **options)
+      attribute_specifications[name] = options
+      result
+    end
   end
 
   def self.attribute(attr_name, validation_opts={})

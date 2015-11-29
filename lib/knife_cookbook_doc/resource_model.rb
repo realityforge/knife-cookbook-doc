@@ -65,7 +65,7 @@ module KnifeCookbookDoc
       @native_resource.description.each_line do |line|
         if /^ *\@action *([^ ]*) (.*)$/ =~ line
           action_descriptions[$1] = $2.strip
-        elsif /^ *\@attribute *([^ ]*) (.*)$/ =~ line
+        elsif /^ *(?:\@attribute|\@property) *([^ ]*) (.*)$/ =~ line
           attribute_descriptions[$1] = $2.strip
         elsif /^ *\@section (.*)$/ =~ line
           current_section = $1.strip
