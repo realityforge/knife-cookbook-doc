@@ -85,6 +85,10 @@ The other text will be added at the start of the LWRP documentation
 except if marked with `@section <heading>`, in which case it will be added
 to the end of the LWRP documentation.
 
+Starting with Chef >12.5, properties will replace attributes in custom
+resources. For compatibility, `@property` may be used interchangibly with
+`@attribute`. Both will be handled completely identical by the plugin.
+
 #### Step 5
 
 In each definition add documentation like:
