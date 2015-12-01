@@ -1,3 +1,7 @@
+# v0.17.0 (Pending)
+* Add support for Chef >= 12.5. Submitted by Ole Claussen.
+* Add support for arrays of default_actions. Submitted by Ole Claussen.
+
 # v0.16.0 (Aug 6 2015)
 
 * Travis CI testing, and test matrix. Submitted by Mark Ayers.
