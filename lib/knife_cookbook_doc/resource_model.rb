@@ -13,16 +13,25 @@ module KnifeCookbookDoc
       @native_resource.resource_name
     end
 
-    # Return the unique set of actions, with the default one first, if there is a default
+    # Return the unique set of actions, with the default one first, if there is a single default
+    # The :nothing action will show up only if it is the only one, or it is  explicitly  documented
     def actions
-      unless @actions
+      return @actions unless @actions.nil?
+
+      if default_action.is_a?(Array)
+        @actions = @native_resource.actions
+      else
         @actions = [default_action].compact + @native_resource.actions.sort.uniq.select { |a| a != default_action }
       end
+
+      @actions.delete(:nothing) if @actions != [:nothing] && action_descriptions[:nothing].nil?
       @actions
     end
 
     def default_action
-      @native_resource.default_action
+      action = @native_resource.default_action
+      return action.first if action.is_a?(Array) && action.length == 1
+      action
     end
 
     def action_description(action)
@@ -65,7 +74,7 @@ module KnifeCookbookDoc
       @native_resource.description.each_line do |line|
         if /^ *\@action *([^ ]*) (.*)$/ =~ line
           action_descriptions[$1] = $2.strip
-        elsif /^ *\@attribute *([^ ]*) (.*)$/ =~ line
+        elsif /^ *(?:\@attribute|\@property) *([^ ]*) (.*)$/ =~ line
           attribute_descriptions[$1] = $2.strip
         elsif /^ *\@section (.*)$/ =~ line
           current_section = $1.strip

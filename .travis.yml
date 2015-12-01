@@ -10,6 +10,7 @@ rvm:
 
 env:
   - CHEF_VERSION=master
+  - CHEF_VERSION=12.5.1
   - CHEF_VERSION=12.4.1
   - CHEF_VERSION=12.3.0
   - CHEF_VERSION=12.2.1
