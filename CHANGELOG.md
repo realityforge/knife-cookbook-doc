@@ -1,4 +1,9 @@
+# v0.18.0 (Dec 1 2015)
+
+* Restore support for ruby pre-2.0 versions.
+
 # v0.17.0 (Dec 1 2015)
+
 * Add support for Chef >= 12.5. Submitted by Ole Claussen.
 * Add support for arrays of default_actions. Submitted by Ole Claussen.
 
