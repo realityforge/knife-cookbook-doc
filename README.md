@@ -116,9 +116,11 @@ In each definition add documentation like:
 Finally the user should add some documentation fragments into the `doc/` dir.
 Most importantly you should add `doc/overview.md` which will replace the first
 `Description` section of the readme. You should also add a `doc/credit.md` which
-will replace the last 'License and Maintainer' section in the readme. The
-remaining fragments will be included at the end of the readme in lexicographic
-order of the filename.
+will replace the last 'License and Maintainer' section in the readme. Under `Requirements` 
+section in readme file, `platform` and `cookbooks` are rendered from metadata.rb but if you need to place
+anything else like environemnt or databags, you need to create `doc/requirements.md` which will 
+add the content to `Requirements` section. The remaining fragments will be included at the end 
+of the readme in lexicographic order of the filename.
 
 ## Installation
 
