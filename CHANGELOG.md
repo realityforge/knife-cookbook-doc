@@ -1,3 +1,7 @@
+# v0.20.0 (Mar 11 2016)
+
+* Support custom requirements being specified in `doc/requirements.md`. Submitted by Deepak Sihag.
+
 # v0.19.0 (Dec 1 2015)
 
 * Revert changes in 0.18.0 as it is not possible to support modern versions of chef and pre-2.0 versions of ruby.
