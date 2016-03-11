@@ -1,6 +1,6 @@
 # v0.19.0 (Dec 1 2015)
 
-* Revert changes in 0.18.0 as it is not possible to support modern versions of chaef and pre-2.0 versions of ruby.
+* Revert changes in 0.18.0 as it is not possible to support modern versions of chef and pre-2.0 versions of ruby.
 
 # v0.18.0 (Dec 1 2015)
 
