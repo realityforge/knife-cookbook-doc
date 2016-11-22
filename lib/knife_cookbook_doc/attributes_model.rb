@@ -3,9 +3,10 @@ module KnifeCookbookDoc
 
     ATTRIBUTE_REGEX = "(^\s*(?:default|set|force_default|override|force_override).*?)=\s*\n?\s*(.*?)$".freeze
 
-    def initialize(filename)
+    def initialize(filename, config)
       @filename = filename
       @attributes = {}
+      @config = config
       load_descriptions
     end
 
@@ -47,6 +48,10 @@ module KnifeCookbookDoc
       end
       resource_data = resource_data.gsub(/^\s*\# ?\<\>\s(.*?$)\n#{ATTRIBUTE_REGEX}/) do
         update_attribute($2, $1)
+      end
+
+      if @config[:ignore_missing_attribute_desc]
+        @attributes.select! { |att_name, att_options| att_options.has_key? :description }
       end
     end
 

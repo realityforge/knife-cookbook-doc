@@ -2,7 +2,7 @@ module KnifeCookbookDoc
   class ReadmeModel
     DEFAULT_CONSTRAINT = ">= 0.0.0".freeze
 
-    def initialize(cookbook_dir, constraints)
+    def initialize(cookbook_dir, config)
 
       @metadata = Chef::Cookbook::Metadata.new
       @metadata.from_file("#{cookbook_dir}/metadata.rb")
@@ -15,7 +15,7 @@ module KnifeCookbookDoc
       else
         @attributes = []
         Dir["#{cookbook_dir}/attributes/*.rb"].sort.each do |attribute_filename|
-          model = AttributesModel.new(attribute_filename)
+          model = AttributesModel.new(attribute_filename, config)
           if !model.attributes.empty?
             @attributes += model.attributes
           end
@@ -51,7 +51,7 @@ module KnifeCookbookDoc
         end
       end
       @metadata = @metadata
-      @constraints = constraints
+      @constraints = config[:constraints]
     end
 
     def fragments

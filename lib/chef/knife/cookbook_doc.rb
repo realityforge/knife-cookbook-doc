@@ -36,6 +36,12 @@ module KnifeCookbookDoc
            :default => Pathname.new("#{File.dirname(__FILE__)}/README.md.erb").realpath,
            :description => 'Set template file used to render README.md'
 
+    option :ignore_missing_attribute_desc,
+           :long => '--ignore-missing-doc-attr',
+           :boolean => true,
+           :default => false,
+           :description => 'Ignore attributes without documetation'
+
     def run
       unless (cookbook_dir = name_args.first)
         ui.fatal 'Please provide cookbook directory as an argument'
@@ -44,7 +50,7 @@ module KnifeCookbookDoc
 
       cookbook_dir = File.realpath(cookbook_dir)
 
-      model = ReadmeModel.new(cookbook_dir, config[:constraints])
+      model = ReadmeModel.new(cookbook_dir, config)
 
       template = File.read(config[:template_file])
       eruby = Erubis::Eruby.new(template)
