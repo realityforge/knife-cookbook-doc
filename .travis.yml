@@ -4,7 +4,6 @@ sudo: false
 gemfile: fixture/gemfile
 
 rvm:
-  - 2.0
   - 2.1
   - 2.2
 
