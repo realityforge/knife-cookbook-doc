@@ -4,8 +4,8 @@ sudo: false
 gemfile: fixture/gemfile
 
 rvm:
-  - 2.1
   - 2.2
+  - 2.3
 
 env:
   - CHEF_VERSION=master
