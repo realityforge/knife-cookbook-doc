@@ -1,3 +1,7 @@
+# v0.21.0 (Dec 2 2016)
+
+* Add support `--ignore-missing-doc-attr` to skip attributes with no documentation. Submitted by Andrey Zax.
+
 # v0.20.0 (Mar 11 2016)
 
 * Support custom requirements being specified in `doc/requirements.md`. Submitted by Deepak Sihag.
