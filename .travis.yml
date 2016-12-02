@@ -4,9 +4,8 @@ sudo: false
 gemfile: fixture/gemfile
 
 rvm:
-  - 2.0
-  - 2.1
-  - 2.2
+  - 2.2.6
+  - 2.3.3
 
 env:
   - CHEF_VERSION=master
@@ -21,25 +20,14 @@ env:
   - CHEF_VERSION=11.14.6
   - CHEF_VERSION=11.12.8
   - CHEF_VERSION=11.10.4
-  - CHEF_VERSION=11.8.2
-  - CHEF_VERSION=11.6.2
-  - CHEF_VERSION=11.4.4
-  - CHEF_VERSION=11.2.0
-  - CHEF_VERSION=11.0.0
 
 matrix:
   fast_finish: true
   exclude:
-    - env: CHEF_VERSION=11.8.2
-      rvm: 2.2
-    - env: CHEF_VERSION=11.6.2
-      rvm: 2.2
-    - env: CHEF_VERSION=11.4.4
-      rvm: 2.2
-    - env: CHEF_VERSION=11.2.0
-      rvm: 2.2
-    - env: CHEF_VERSION=11.0.0
-      rvm: 2.2
+    - env: CHEF_VERSION=11.12.8
+      rvm: 2.3.3
+    - env: CHEF_VERSION=11.10.4
+      rvm: 2.3.3
 
   allow_failures:
     - env: CHEF_VERSION=master
