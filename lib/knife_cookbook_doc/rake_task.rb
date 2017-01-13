@@ -28,7 +28,7 @@ module KnifeCookbookDoc
       task(name) do
         merged_options = default_options.merge(options)
         cookbook_dir = File.realpath(merged_options[:cookbook_dir])
-        model = ReadmeModel.new(cookbook_dir, merged_options[:constraints])
+        model = ReadmeModel.new(cookbook_dir, merged_options)
         template = File.read(merged_options[:template_file])
         eruby = Erubis::Eruby.new(template)
         result = eruby.result(model.get_binding)
