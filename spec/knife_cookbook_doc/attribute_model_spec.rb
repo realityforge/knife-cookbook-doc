@@ -67,7 +67,7 @@ default['knife_cookbook_doc']['attr5x'] = 'attr5x_value'
 EOS
     }
     subject do
-      KnifeCookbookDoc::AttributesModel.new('attributes/default.rb').attributes
+      KnifeCookbookDoc::AttributesModel.new('attributes/default.rb', {}).attributes
     end
 
     it do
