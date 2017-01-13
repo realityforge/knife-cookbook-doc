@@ -23,7 +23,8 @@ module KnifeCookbookDoc
     end
 
     def define
-      desc 'Generate cookbook documentation' unless ::Rake.application.last_comment
+      last_description = ::Rake::Version::MAJOR.to_i < 12 ? ::Rake.application.last_comment : ::Rake.application.last_description
+      desc 'Generate cookbook documentation' unless last_description
       task(name) do
         merged_options = default_options.merge(options)
         cookbook_dir = File.realpath(merged_options[:cookbook_dir])
