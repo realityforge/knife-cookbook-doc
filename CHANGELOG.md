@@ -1,3 +1,5 @@
+# v0.23.0 (Pending)
+
 # v0.22.0 (Feb 9 2017)
 
 * Fix rake tasks for newer versions of Rake. Submitted by jsirex.
