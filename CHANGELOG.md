@@ -1,5 +1,7 @@
 # v0.22.0 (Pending)
 
+* Fix rake tasks for newer versions of Rake. Submitted by jsirex.
+
 # v0.21.0 (Dec 2 2016)
 
 * Add support `--ignore-missing-doc-attr` to skip attributes with no documentation. Submitted by Andrey Zax.
