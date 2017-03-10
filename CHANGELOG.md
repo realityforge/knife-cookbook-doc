@@ -1,4 +1,4 @@
-# v0.23.0 (Pending)
+# v0.23.0 (Mar 11 2017)
 
 * Fix documentation of parameters with default value of false was incorrectly documented
   as false. Submitted by Guillaume Rozan.
