@@ -43,7 +43,7 @@ module KnifeCookbookDoc
         all.each do |k, v|
           p_name = k.to_s
           params[p_name] ||= {}
-          params[p_name]['default'] = v ? v : 'nil'
+          params[p_name]['default'] = v.nil? ? v : 'nil'
         end
       end
     end
