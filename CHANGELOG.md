@@ -1,3 +1,5 @@
+# v0.25.0 (Pending)
+
 # v0.24.0 (Mar 11 2017)
 
 * Fix the mis-application of change in v0.23.0. Submitted by Guillaume Rozan.
