@@ -22,7 +22,7 @@ it's currency.
 #### Step 1
 
 Populate the `metadata.rb` of your cookbook according to Opscode's
-[documentation](http://docs.opscode.com/config_rb_metadata.html). Particular
+[documentation](https://docs.chef.io/config_rb_metadata.html). Particular
 attention should be paid to documenting the platform compatibility and
 cookbook requirements (i.e. depends, recommends, suggests etc). Documentation
 for attributes and recipes can either be derived from scanning the source
