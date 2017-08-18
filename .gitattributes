@@ -1,0 +1,11 @@
+# DO NOT EDIT: File is auto-generated
+* -text
+*.erb text
+*.gemspec text
+*.md text
+*.rb text
+*.yml text
+.gitignore text
+Gemfile text
+LICENSE text
+Rakefile text
