@@ -1,4 +1,6 @@
-# v0.25.0 (Pending)
+# v0.24.1 (Oct 2 2017)
+
+* Fix the markdown spacing for maintainer/source/issues URL. Submitted by Jamie Tanna.
 
 # v0.24.0 (Mar 11 2017)
 
