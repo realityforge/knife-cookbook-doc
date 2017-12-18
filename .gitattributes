@@ -5,6 +5,7 @@
 *.md text
 *.rb text
 *.yml text
+.gitattributes text
 .gitignore text
 Gemfile text
 LICENSE text
