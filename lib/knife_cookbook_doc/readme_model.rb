@@ -103,20 +103,32 @@ module KnifeCookbookDoc
     end
 
     def recommendations
-      @metadata.recommendations.map do |cookbook, version|
-        format_constraint(cookbook, version)
+      if @metadata.methods.include?(:recommendations)
+        @metadata.recommendations.map do |cookbook, version|
+          format_constraint(cookbook, version)
+        end
+      else
+        []
       end
     end
 
     def suggestions
-      @metadata.suggestions.map do |cookbook, version|
-        format_constraint(cookbook, version)
+      if @metadata.methods.include?(:suggestions)
+        @metadata.suggestions.map do |cookbook, version|
+          format_constraint(cookbook, version)
+        end
+      else
+        []
       end
     end
 
     def conflicting
-      @metadata.conflicting.map do |cookbook, version|
-        format_constraint(cookbook, version)
+      if @metadata.methods.include?(:conflicting)
+        @metadata.conflicting.map do |cookbook, version|
+          format_constraint(cookbook, version)
+        end
+      else
+        []
       end
     end
 
