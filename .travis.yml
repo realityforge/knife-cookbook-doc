@@ -1,6 +1,5 @@
 language: ruby
 cache: bundler
-sudo: false
 gemfile: fixture/gemfile
 
 rvm:
