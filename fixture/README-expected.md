@@ -6,6 +6,11 @@
 
 # Requirements
 
+
+## Chef Client:
+
+*No Chef versions defined*
+
 ## Platform:
 
 * cookbook-authors
