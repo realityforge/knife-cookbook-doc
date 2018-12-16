@@ -97,8 +97,12 @@ module KnifeCookbookDoc
     end
 
     def chef_versions
-      @metadata.chef_versions.map do |chef_version, version|
-        format_constraint(chef_version, version)
+      if @metadata.methods.include?(:chef_version)
+        @metadata.chef_versions.map do |chef_version, version|
+          format_constraint(chef_version, version)
+        end
+      else
+        []
       end
     end
 
