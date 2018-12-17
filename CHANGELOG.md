@@ -1,3 +1,7 @@
+# v0.25.2 (Dec 18 2018)
+
+* Re-release gem with the appropriate version.
+
 # v0.24.2 (Dec 17 2018)
 
 * Add chef_versions support. Submitted by Nikolay Antsiferov.
