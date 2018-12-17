@@ -1,3 +1,7 @@
+# v0.24.2 (Dec 17 2018)
+
+* Add chef_versions support. Submitted by Nikolay Antsiferov.
+
 # v0.24.1 (Oct 2 2017)
 
 * Fix the markdown spacing for maintainer/source/issues URL. Submitted by Jamie Tanna.
