@@ -12,6 +12,17 @@
 <%= fragments['requirements'] -%>
 
 <% end -%>
+
+## Chef Client:
+
+<% unless chef_versions.empty? %>
+<% chef_versions.each do |chef_version| %>
+* <%= chef_version %>
+<% end %>
+<% else %>
+*No Chef versions defined*
+<% end %>
+
 ## Platform:
 
 <% unless platforms.empty? %>
