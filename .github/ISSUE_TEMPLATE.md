@@ -35,7 +35,9 @@ Reproduction repository:
 
 <!--
 If possible, please create a repository that reproduces the issue with the
-minimal amount of code possible.
+minimal amount of code possible. It is highly recommended you take the time
+to read "How to create a Minimal, Complete, and Verifiable example" at
+https://stackoverflow.com/help/mcve
 -->
 
 Problem description:
