@@ -52,14 +52,18 @@ module KnifeCookbookDoc
 
     def attribute_has_default_value?(attribute)
       specification = @native_resource.attribute_specifications[attribute]
-      specification && specification.has_key?(:default)
+      specification && specification.key?(:default)
     end
 
     def attribute_default_value(attribute)
-      if attribute_has_default_value?(attribute)
-        return @native_resource.attribute_specifications[attribute][:default]
+      default = if attribute_has_default_value?(attribute)
+                  @native_resource.attribute_specifications[attribute][:default]
+                end
+
+      if default.is_a?(Chef::DelayedEvaluator)
+        'lazy { ... }'
       else
-        return nil
+        default.inspect
       end
     end
 
