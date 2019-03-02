@@ -147,7 +147,7 @@
 ### Attribute Parameters
 
 <% resource.attributes.each do |attribute| -%>
-- <%= attribute %>: <%= resource.attribute_description(attribute) %><% if resource.attribute_has_default_value?(attribute) %> Defaults to <code><%= resource.attribute_default_value(attribute).inspect %></code>.<% end %>
+- <%= attribute %>: <%= resource.attribute_description(attribute) %><% if resource.attribute_has_default_value?(attribute) %> Defaults to <code><%= resource.attribute_default_value(attribute) %></code>.<% end %>
 <% end -%>
 <% end -%>
 <% resource.top_level_descriptions.keys.select{|k| k != 'main'}.each do |key| -%>
