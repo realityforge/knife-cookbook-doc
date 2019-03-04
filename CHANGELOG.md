@@ -1,5 +1,7 @@
 # v0.26.0 (Mar 4 2019)
 
+* Display `lazy` defaults as such. Submitted by Joe Nuspl.
+
 # v0.25.2 (Dec 18 2018)
 
 * Re-release gem with the appropriate version.
