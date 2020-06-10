@@ -1,4 +1,8 @@
-require 'berkshelf'
+begin
+  require 'berkshelf'
+rescue LoadError
+  # won't be able to get :source_url for dependent cookbooks
+end
 
 module KnifeCookbookDoc
   class ReadmeModel
@@ -176,7 +180,7 @@ module KnifeCookbookDoc
 
     def source_url_from_berkshelf(name)
       @source_url ||= begin
-        if File.exist?('Berksfile')
+        if File.exist?('Berksfile') && defined?(::Berkshelf)
           ::Berkshelf::Berksfile
             .from_file('Berksfile')
             .install
