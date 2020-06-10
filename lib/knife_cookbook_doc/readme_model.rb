@@ -1,3 +1,9 @@
+begin
+  require 'berkshelf'
+rescue LoadError
+  # won't be able to get :source_url for dependent cookbooks
+end
+
 module KnifeCookbookDoc
   class ReadmeModel
     DEFAULT_CONSTRAINT = ">= 0.0.0".freeze
@@ -172,7 +178,28 @@ module KnifeCookbookDoc
 
     private
 
+    def source_url_from_berkshelf(name)
+      @source_url ||= begin
+        if File.exist?('Berksfile') && defined?(::Berkshelf)
+          ::Berkshelf::Berksfile
+            .from_file('Berksfile')
+            .install
+            .map { |cb| [cb.cookbook_name, cb.metadata.source_url] }
+            .to_h
+        else
+          {}
+        end
+      end
+      @source_url[name]
+    end
+
     def format_constraint(name, version)
+      url = source_url_from_berkshelf(name)
+      if !url.nil? && url.start_with?('http')
+        # git:// and ssh:// URLs are not browsable
+        name = "[#{name}](#{url})"
+      end
+
       if @constraints && version != DEFAULT_CONSTRAINT
         "#{name} (#{version})"
       else
