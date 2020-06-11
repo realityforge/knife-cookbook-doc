@@ -1,5 +1,7 @@
 # Unreleased
 
+* If `Berksfile` exists, add source_url links to cookbooks. Submitted by Joe Nuspl.
+
 # v0.27.0 (Jun 20 2019)
 
 * Add support for Chef 15. Submitted by grozan.
