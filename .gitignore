@@ -1,5 +1,6 @@
 /Gemfile.lock
 /*.gem
+/fixture/README-generated.md
 
 # Intermediate package dir
 /pkg

@@ -8,6 +8,8 @@ module KnifeCookbookDoc
   class ReadmeModel
     DEFAULT_CONSTRAINT = ">= 0.0.0".freeze
 
+    attr_reader :libraries
+
     def initialize(cookbook_dir, config)
 
       @metadata = Chef::Cookbook::Metadata.new
@@ -26,6 +28,10 @@ module KnifeCookbookDoc
             @attributes += model.attributes
           end
         end
+      end
+
+      @libraries = Dir["#{cookbook_dir}/libraries/*.rb"].sort.map do |path|
+        LibrariesModel.new(@metadata.name, path)
       end
 
       @resources = []

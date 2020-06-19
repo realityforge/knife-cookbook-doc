@@ -50,6 +50,11 @@ This resource is awesome.
 - my_attribute: This is an attribute. Defaults to <code>"a default value"</code>.
 - my_property: This is a property. Defaults to <code>"another default value"</code>.
 
+# Libraries
+
+## stooges()
+Returns `['Moe', 'Larry', 'Curly']`
+
 # Credits
 
 * Mathias Lafeldt
