@@ -159,6 +159,13 @@
 
 <% end -%>
 <% end -%>
+<% unless libraries.empty? -%>
+# Libraries
+<% libraries.each do |lib| -%>
+
+<%= lib.descriptions %>
+<% end -%>
+<% end -%>
 <% fragments.keys.select {|k|k != 'overview' && k != 'credit' && k != 'requirements'}.each do |key| -%>
 <%= fragments[key] %>
 
