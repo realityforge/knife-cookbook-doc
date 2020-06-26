@@ -1,5 +1,7 @@
 # Unreleased
 
+* Extract descriptions from `libraries/*.rb`. Submitted by Joe Nuspl.
+
 # v0.28.0 (Jun 11 2020)
 
 * If `Berksfile` exists, add source_url links to cookbooks. Submitted by Joe Nuspl.
