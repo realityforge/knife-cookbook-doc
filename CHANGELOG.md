@@ -1,5 +1,7 @@
 # Unreleased
 
+* Support a space after # in custom resource. Submitted by Tomoya Kabe.
+
 # v0.29.0 (Jun 26 2020)
 
 * Extract descriptions from `libraries/*.rb`. Submitted by Joe Nuspl.
