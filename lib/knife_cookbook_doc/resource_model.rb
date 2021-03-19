@@ -98,13 +98,13 @@ module KnifeCookbookDoc
       resource_class.resource_name = filename_to_qualified_string(cookbook_name, filename)
       resource_class.run_context = nil
       resource_data = IO.read(filename)
-      resource_data = resource_data.gsub(/^=begin *\n *\#\<\n(.*?)^ *\#\>\n=end *\n/m) do
+      resource_data = resource_data.gsub(/^=begin *\n *\# ?\<\n(.*?)^ *\# ?\>\n=end *\n/m) do
         "desc <<DOCO\n#{$1}\nDOCO\n"
       end
-      resource_data = resource_data.gsub(/^ *\#\<\n(.*?)^ *\#\>\n/m) do
+      resource_data = resource_data.gsub(/^ *\# ?\<\n(.*?)^ *\# ?\>\n/m) do
         "desc <<DOCO\n#{$1.gsub(/^ *\# ?/, '')}\nDOCO\n"
       end
-      resource_data = resource_data.gsub(/^ *\#\<\> (.*?)$/) do
+      resource_data = resource_data.gsub(/^ *\# ?\<\> (.*?)$/) do
         "desc #{$1.inspect}\n"
       end
 
