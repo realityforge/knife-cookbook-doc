@@ -36,6 +36,7 @@ MyApp Admin Group: The group allowed to manage MyApp.
 # Resources
 
 * [fixture](#fixture) - This resource is awesome.
+* [fixture_space](#fixture_space) - This resource is spacial.
 
 ## fixture
 
@@ -44,6 +45,19 @@ This resource is awesome.
 ### Actions
 
 - stuff: Does awesome things. Default action.
+
+### Attribute Parameters
+
+- my_attribute: This is an attribute. Defaults to <code>"a default value"</code>.
+- my_property: This is a property. Defaults to <code>"another default value"</code>.
+
+## fixture_space
+
+This resource is spacial.
+
+### Actions
+
+- stuff: Inserts spaces. Default action.
 
 ### Attribute Parameters
 
