@@ -1,5 +1,7 @@
 # Unreleased
 
+* Prettify Chef version constraints.
+
 # v0.30.0 (Mar 19 2021)
 
 * Support a space after # in custom resource. Submitted by Tomoya Kabe.
