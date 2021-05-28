@@ -26,13 +26,19 @@ env:
 matrix:
   fast_finish: true
   exclude:
-    - env: CHEF_VERSION=11.12.8
+    - env: CHEF_VERSION=11.12.8 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
       rvm: 2.3.3
-    - env: CHEF_VERSION=11.10.4
+    - env: CHEF_VERSION=11.10.4 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
       rvm: 2.3.3
+    - env: CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.2.6
+    - env: CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.3.3
+    - env: CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.6.7
 
   allow_failures:
-    - env: CHEF_VERSION=master
+    - env: CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
 
 script:
   - cd fixture
