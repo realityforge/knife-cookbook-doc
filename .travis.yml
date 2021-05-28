@@ -10,6 +10,8 @@ rvm:
 
 env:
   - CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+  - CHEF_VERSION=16.13.16 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+  - CHEF_VERSION=15.17.4 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
   - CHEF_VERSION=12.6.0 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
   - CHEF_VERSION=12.5.1 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
   - CHEF_VERSION=12.4.1 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
@@ -37,6 +39,15 @@ matrix:
       rvm: 2.3.3
     - env: CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
       rvm: 2.6.7
+    # Newer Chef does not work with old Ruby
+    - env: CHEF_VERSION=16.13.16 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.2.6
+    - env: CHEF_VERSION=15.17.4 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.2.6
+    - env: CHEF_VERSION=16.13.16 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.3.3
+    - env: CHEF_VERSION=15.17.4 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.3.3
     # Old Chef bundles old json package incompatible with newer Ruby
     - env: CHEF_VERSION=12.1.2 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
       rvm: 2.6.7
