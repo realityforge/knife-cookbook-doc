@@ -13,7 +13,7 @@ module KnifeCookbookDoc
     def initialize(cookbook_dir, config)
 
       @metadata = Chef::Cookbook::Metadata.new
-      @metadata.from_file("#{cookbook_dir}/metadata.rb")
+      @metadata.from_file("#{cookbook_dir}/#{config[:metadata]}")
 
       if (!@metadata.attributes.empty? rescue false)
         @attributes = @metadata.attributes.map do |attr, options|

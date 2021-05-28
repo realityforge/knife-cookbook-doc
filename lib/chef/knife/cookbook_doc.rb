@@ -43,6 +43,11 @@ module KnifeCookbookDoc
            :default => false,
            :description => 'Ignore attributes without documetation'
 
+    option :metadata,
+           :long => '--metadata FILE',
+           :default => 'metadata.rb',
+           :description => 'metadata.rb path'
+
     def run
       unless (cookbook_dir = name_args.first)
         ui.fatal 'Please provide cookbook directory as an argument'
