@@ -1,0 +1,75 @@
+# Description
+
+# My Cookbook Readme
+
+**`knife cookbook doc .` _rocks_**
+
+# Requirements
+
+
+## Chef Client:
+
+*No Chef versions defined*
+
+## Platform:
+
+* cookbook-authors
+
+## Cookbooks:
+
+* upon-magic
+
+# Attributes
+
+* `node['knife']['cookbook']['doc']` -  Defaults to `successful automation`.
+
+# Recipes
+
+* [fixture::default](#fixturedefault) - The recipe is awesome.
+
+## fixture::default
+
+The recipe is awesome. It does thing 1, thing 2 and thing 3!
+
+MyApp Admin Group: The group allowed to manage MyApp.
+
+# Resources
+
+* [fixture](#fixture) - This resource is awesome.
+* [fixture_space](#fixture_space) - This resource is spacial.
+
+## fixture
+
+This resource is awesome.
+
+### Actions
+
+- stuff: Does awesome things. Default action.
+
+### Attribute Parameters
+
+- my_attribute: This is an attribute. Defaults to <code>"a default value"</code>.
+- my_property: This is a property. Defaults to <code>"another default value"</code>.
+
+## fixture_space
+
+This resource is spacial.
+
+### Actions
+
+- stuff: Inserts spaces. Default action.
+
+### Attribute Parameters
+
+- my_attribute: This is an attribute. Defaults to <code>"a default value"</code>.
+- my_property: This is a property. Defaults to <code>"another default value"</code>.
+
+# Libraries
+
+## stooges()
+Returns `['Moe', 'Larry', 'Curly']`
+
+# Credits
+
+* Mathias Lafeldt
+* Peter Donald
