@@ -5,9 +5,12 @@ gemfile: fixture/gemfile
 rvm:
   - 2.2.6
   - 2.3.3
+  - 2.6.7
+  - 2.7.3
 
 env:
   - CHEF_VERSION=master
+  - CHEF_VERSION=12.6.0
   - CHEF_VERSION=12.5.1
   - CHEF_VERSION=12.4.1
   - CHEF_VERSION=12.3.0
