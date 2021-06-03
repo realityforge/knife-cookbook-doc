@@ -5,33 +5,83 @@ gemfile: fixture/gemfile
 rvm:
   - 2.2.6
   - 2.3.3
+  - 2.6.7
+  - 2.7.3
 
 env:
-  - CHEF_VERSION=master
-  - CHEF_VERSION=12.5.1
-  - CHEF_VERSION=12.4.1
-  - CHEF_VERSION=12.3.0
-  - CHEF_VERSION=12.2.1
-  - CHEF_VERSION=12.1.2
-  - CHEF_VERSION=12.0.3
-  - CHEF_VERSION=11.18.12
-  - CHEF_VERSION=11.16.4
-  - CHEF_VERSION=11.14.6
-  - CHEF_VERSION=11.12.8
-  - CHEF_VERSION=11.10.4
+  - CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+  - CHEF_VERSION=16.13.16 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+  - CHEF_VERSION=15.17.4 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+  - CHEF_VERSION=12.6.0 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+  - CHEF_VERSION=12.5.1 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=12.4.1 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=12.3.0 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=12.2.1 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=12.1.2 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=12.0.3 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=11.18.12 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=11.16.4 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=11.14.6 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=11.12.8 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+  - CHEF_VERSION=11.10.4 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
 
 matrix:
   fast_finish: true
   exclude:
-    - env: CHEF_VERSION=11.12.8
+    - env: CHEF_VERSION=11.12.8 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
       rvm: 2.3.3
-    - env: CHEF_VERSION=11.10.4
+    - env: CHEF_VERSION=11.10.4 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
       rvm: 2.3.3
+    # As of May 28 2021, chef/chef master requires 2.7 or higher
+    - env: CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.2.6
+    - env: CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.3.3
+    - env: CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.6.7
+    # Newer Chef does not work with old Ruby
+    - env: CHEF_VERSION=16.13.16 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.2.6
+    - env: CHEF_VERSION=15.17.4 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.2.6
+    - env: CHEF_VERSION=16.13.16 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.3.3
+    - env: CHEF_VERSION=15.17.4 EXPECTED_FILE=README-expected.md METADATA=metadata.rb
+      rvm: 2.3.3
+    # Old Chef bundles old json package incompatible with newer Ruby
+    - env: CHEF_VERSION=12.1.2 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.6.7
+    - env: CHEF_VERSION=12.1.2 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.7.3
+    - env: CHEF_VERSION=12.0.3 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.6.7
+    - env: CHEF_VERSION=12.0.3 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.7.3
+    - env: CHEF_VERSION=11.18.12 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.6.7
+    - env: CHEF_VERSION=11.18.12 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.7.3
+    - env: CHEF_VERSION=11.16.4 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.6.7
+    - env: CHEF_VERSION=11.16.4 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.7.3
+    - env: CHEF_VERSION=11.14.6 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.6.7
+    - env: CHEF_VERSION=11.14.6 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.7.3
+    - env: CHEF_VERSION=11.12.8 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.6.7
+    - env: CHEF_VERSION=11.12.8 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.7.3
+    - env: CHEF_VERSION=11.10.4 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.6.7
+    - env: CHEF_VERSION=11.10.4 EXPECTED_FILE=README-expected_legacy.md METADATA=metadata_legacy.rb
+      rvm: 2.7.3
 
   allow_failures:
-    - env: CHEF_VERSION=master
+    - env: CHEF_VERSION=master EXPECTED_FILE=README-expected.md METADATA=metadata.rb
 
 script:
   - cd fixture
-  - bundle exec knife cookbook doc . -o README-generated.md -c knife.rb
-  - diff README-expected.md README-generated.md && rm README-generated.md
+  - bundle exec knife cookbook doc . -o README-generated.md -c knife.rb --metadata $METADATA
+  - diff $EXPECTED_FILE README-generated.md && rm README-generated.md

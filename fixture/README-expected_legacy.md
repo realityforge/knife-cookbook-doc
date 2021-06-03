@@ -9,8 +9,7 @@
 
 ## Chef Client:
 
-* chef (>= 14.0, < 16.0)
-* chef (= 12.0)
+*No Chef versions defined*
 
 ## Platform:
 
