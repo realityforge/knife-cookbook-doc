@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_paths = %w(lib)
   s.version       = KnifeCookbookDoc::VERSION
 
-  s.add_dependency 'chef'
+  s.add_dependency 'chef', '>= 12.3'
   s.add_dependency 'erubis'
 
   s.add_development_dependency 'rake'
